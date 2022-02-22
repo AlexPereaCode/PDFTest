@@ -1,0 +1,9 @@
+{
+    "download_filename": "Test.pdf",
+    "filesize": 1042157,
+    "output_extensions": "[\"pdf\"]",
+    "output_filenumber": 1,
+    "output_filesize": 205390,
+    "status": "TaskSuccess",
+    "timer": "0.390"
+}
