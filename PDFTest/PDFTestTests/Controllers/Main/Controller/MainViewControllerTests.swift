@@ -29,17 +29,6 @@ class MainViewControllerTests: XCTestCase {
     }
     
     func testShowActivityIndicatorMethodCalled() {
-
-        class MainViewControllerMock: BaseViewController, MainView {
-            var showActivityCalled = false
-            
-            func showActivityIndicator() {
-                showActivityCalled = true
-            }
-            func hideActivityIndicator() {}
-            func presentDocumentPicker() {}
-        }
-        
         let sut = MainViewControllerMock()
         XCTAssertEqual(sut.showActivityCalled, false)
         sut.showActivityIndicator()
@@ -47,16 +36,6 @@ class MainViewControllerTests: XCTestCase {
     }
     
     func testHideActivityIndicatorMethodCalled() {
-        class MainViewControllerMock: BaseViewController, MainView {
-            var hideActivityCalled = false
-            
-            func showActivityIndicator() {}
-            func hideActivityIndicator() {
-                hideActivityCalled = true
-            }
-            func presentDocumentPicker() {}
-        }
-        
         let sut = MainViewControllerMock()
         XCTAssertEqual(sut.hideActivityCalled, false)
         sut.hideActivityIndicator()
@@ -64,17 +43,6 @@ class MainViewControllerTests: XCTestCase {
     }
     
     func testPresentDocumentPickerMethodCalled() {
-        class MainViewControllerMock: BaseViewController, MainView {
-            var documentPickerCalled = false
-            
-            func showActivityIndicator() {}
-            func hideActivityIndicator() {}
-            
-            func presentDocumentPicker() {
-                documentPickerCalled = true
-            }
-        }
-        
         let sut = MainViewControllerMock()
         XCTAssertEqual(sut.documentPickerCalled, false)
         sut.presentDocumentPicker()

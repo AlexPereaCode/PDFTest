@@ -41,7 +41,6 @@ class MainPresenter<T: MainView>: BasePresenter<T> {
         startTask()
     }
     
-    // MARK: - Private Functions
     func refreshToken() {
         getTokenUseCase.execute { result in
             switch result {
@@ -53,7 +52,7 @@ class MainPresenter<T: MainView>: BasePresenter<T> {
         }
     }
     
-    private func startTask() {
+    func startTask() {
         startTaskUseCase.execute { [weak self] result in
             switch result {
             case .success(let startModel):
@@ -64,7 +63,7 @@ class MainPresenter<T: MainView>: BasePresenter<T> {
         }
     }
     
-    private func upload(start: StartTaskResponse) {
+    func upload(start: StartTaskResponse) {
         guard let url = currentPDFURL else { return }
         view?.showActivityIndicator()
         let originalFileName = url.lastPathComponent

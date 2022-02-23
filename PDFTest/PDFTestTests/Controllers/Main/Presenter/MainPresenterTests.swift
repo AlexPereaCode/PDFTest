@@ -23,18 +23,7 @@ class MainPresenterTests: XCTestCase {
     }
     
     func testViewDidLoad() {
-        class MainPresenterMock: MainPresenter<MainViewController> {
-            var refreshTokenIsCalled = false
-            
-            override func refreshToken() {
-                refreshTokenIsCalled = true
-            }
-        }
-        
-        let sut = MainPresenterMock(getTokenUseCase: Assembler.shared.resolve(),
-                                    router: MainRouter(viewController: UIViewController()),
-                                    startTaskUseCase: Assembler.shared.resolve(),
-                                    uploadUseCase: Assembler.shared.resolve())
+        let sut = getMainPresenterMock()
         sut.viewDidLoad()
         XCTAssertTrue(sut.refreshTokenIsCalled)
     }
@@ -42,30 +31,9 @@ class MainPresenterTests: XCTestCase {
     func testRefreshToken() {
         let getTokenExpectation = expectation(description: "Get Token...")
         let fakeToken = "742637462378_uiwauyi"
-        
-        class MainPresenterMock: MainPresenter<MainViewController> {
-            let getTokenUseCaseMock = GetTokenUseCaseMock()
-            var getTokenExpectation: XCTestExpectation! = nil
-            
-            override func refreshToken() {
-                getTokenUseCaseMock.execute { [weak self] result in
-                    self?.getTokenExpectation.fulfill()
-                    
-                    switch result {
-                    case.success(let model):
-                        Credentials.shared.token = model.token
-                    case .failure:
-                        fatalError("Refresh Token Failed")
-                    }
-                }
-            }
-        }
-        
+                
         Credentials.shared.token = fakeToken
-        let sut = MainPresenterMock(getTokenUseCase: Assembler.shared.resolve(),
-                                    router: MainRouter(viewController: UIViewController()),
-                                    startTaskUseCase: Assembler.shared.resolve(),
-                                    uploadUseCase: Assembler.shared.resolve())
+        let sut = getMainPresenterMock()
         sut.getTokenExpectation = getTokenExpectation
         sut.refreshToken()
         
@@ -75,11 +43,32 @@ class MainPresenterTests: XCTestCase {
     }
 
     func testDidPickDocument() {
-        let mockURL = URL(string: "www.apple.com")!
-        sut.didPickDocument(url: mockURL)
-        XCTAssertEqual(sut.currentPDFURL!, mockURL)
+        sut.didPickDocument(url: Mocks.url)
+        XCTAssertEqual(sut.currentPDFURL!, Mocks.url)
     }
     
+    func testStartTaskIsCalled() {
+        let sut = getMainPresenterMock()
+        sut.didPickDocument(url: Mocks.url)
+        XCTAssertTrue(sut.startTaskIsCalled)
+    }
+    
+    func testStartTask() {
+        let startTaskExpectation = expectation(description: "Start Task...")
+        let sut = getMainPresenterMock()
+        sut.startTaskExpectation = startTaskExpectation
+        sut.startTask()
+        waitForExpectations(timeout: 5, handler: nil)
+        XCTAssertTrue(sut.uploadIsCalled)
+    }
+    
+    // MARK: - Aux Methods
+    private func getMainPresenterMock() -> MainPresenterMock {
+        MainPresenterMock(getTokenUseCase: GetTokenUseCaseMock(),
+                                    router: MainRouter(viewController: UIViewController()),
+                                    startTaskUseCase: StartTaskUseCaseMock(),
+                                    uploadUseCase: Assembler.shared.resolve())
+    }
     
 
 }
