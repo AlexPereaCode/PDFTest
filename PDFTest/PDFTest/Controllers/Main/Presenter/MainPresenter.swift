@@ -7,13 +7,13 @@
 
 import Foundation
 
-final class MainPresenter<T: MainView>: BasePresenter<T> {
+class MainPresenter<T: MainView>: BasePresenter<T> {
     
     private let getTokenUseCase: GetTokenUseCase
     private let router: MainRouter
     private let startTaskUseCase: StartTaskUseCase
     private let uploadUseCase: UploadUseCase
-    private var currentPDFURL: URL?
+    private(set) var currentPDFURL: URL?
     
     init(
         getTokenUseCase: GetTokenUseCase,
@@ -42,7 +42,7 @@ final class MainPresenter<T: MainView>: BasePresenter<T> {
     }
     
     // MARK: - Private Functions
-    private func refreshToken() {
+    func refreshToken() {
         getTokenUseCase.execute { result in
             switch result {
             case .success(let authModel):

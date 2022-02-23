@@ -11,30 +11,30 @@ import Alamofire
 
 class UploadSpecsTests: XCTestCase {
     
-    private var uploadSpecs: UploadSpecs!
+    private var sut: UploadSpecs!
 
     override func setUpWithError() throws {
-        uploadSpecs = UploadSpecs.upload(server: Mocks.server, task: Mocks.task)
+        sut = UploadSpecs.upload(server: Mocks.server, task: Mocks.task)
     }
 
     override func tearDownWithError() throws {
-        uploadSpecs = nil
+        sut = nil
     }
 
     func testBaseURL() {
-        XCTAssertTrue(uploadSpecs.baseURLString == "https://\(Mocks.server)/v1/upload")
+        XCTAssertTrue(sut.baseURLString == "https://\(Mocks.server)/v1/upload")
     }
     
     func testPath() {
-        XCTAssertTrue(uploadSpecs.path == "")
+        XCTAssertTrue(sut.path == "")
     }
     
     func testHTTPMethod() {
-        XCTAssertTrue(uploadSpecs.method == .post)
+        XCTAssertTrue(sut.method == .post)
     }
     
     func testParams() {
-        guard let params = uploadSpecs.parameters else {
+        guard let params = sut.parameters else {
             XCTFail(TestMessages.expectedParametersMessage)
             return
         }
@@ -43,6 +43,6 @@ class UploadSpecsTests: XCTestCase {
     }
     
     func testHeaders() {
-        XCTAssertEqual(uploadSpecs.headers?["Authorization"], "Bearer \(Credentials.shared.token)")
+        XCTAssertEqual(sut.headers?["Authorization"], "Bearer \(Credentials.shared.token)")
     }
 }

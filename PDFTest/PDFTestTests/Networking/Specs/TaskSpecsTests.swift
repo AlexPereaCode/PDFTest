@@ -11,30 +11,30 @@ import Alamofire
 
 class TaskSpecsTests: XCTestCase {
 
-    private var taskSpecs: TaskSpecs!
+    private var sut: TaskSpecs!
 
     override func setUpWithError() throws {
-        taskSpecs = TaskSpecs.startTask
+        sut = TaskSpecs.startTask
     }
 
     override func tearDownWithError() throws {
-        taskSpecs = nil
+        sut = nil
     }
 
     func testBaseURL() {
-        XCTAssertTrue(taskSpecs.baseURLString == Credentials.shared.apiBaseURL)
+        XCTAssertTrue(sut.baseURLString == Credentials.shared.apiBaseURL)
     }
     
     func testPath() {
-        XCTAssertTrue(taskSpecs.path == "start/compress")
+        XCTAssertTrue(sut.path == "start/compress")
     }
     
     func testHTTPMethod() {
-        XCTAssertTrue(taskSpecs.method == .get)
+        XCTAssertTrue(sut.method == .get)
     }
     
     func testParams() {
-        guard let params = taskSpecs.parameters else {
+        guard let params = sut.parameters else {
             XCTFail(TestMessages.expectedParametersMessage)
             return
         }

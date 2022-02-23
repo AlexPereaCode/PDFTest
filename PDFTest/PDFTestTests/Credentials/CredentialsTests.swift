@@ -10,32 +10,32 @@ import XCTest
 
 class CredentialsTests: XCTestCase {
     
-    private var credentials: Credentials!
+    private var sut: Credentials!
     private let token = "ABDHJJS784738749HJHJS"
 
     override func setUpWithError() throws {
-        credentials = Credentials.shared
+        sut = Credentials.shared
     }
 
     override func tearDownWithError() throws {
-        credentials = nil
+        sut = nil
     }
     
     func testSaveTokenInDefaults() {
-        credentials.token = token
+        sut.token = token
         XCTAssertEqual(UserDefaults.standard.string(forKey: "token") ?? "", token)
     }
     
     func testGetTokenFromCredentials() {
-        credentials.token = token
-        XCTAssertEqual(credentials.token, token)
+        sut.token = token
+        XCTAssertEqual(sut.token, token)
     }
 
     func testAPIBaseURL() {
-        XCTAssertEqual(credentials.apiBaseURL, "https://api.ilovepdf.com/v1/")
+        XCTAssertEqual(sut.apiBaseURL, "https://api.ilovepdf.com/v1/")
     }
     
     func testPublicKey() {
-        XCTAssertEqual(credentials.publicKey, "project_public_85f90e1cb3cb9da0c17150b99490f8f9_4_rdAa2ea3a4eadf3ffca103097bcc2e7d7e4")
+        XCTAssertEqual(sut.publicKey, "project_public_85f90e1cb3cb9da0c17150b99490f8f9_4_rdAa2ea3a4eadf3ffca103097bcc2e7d7e4")
     }
 }

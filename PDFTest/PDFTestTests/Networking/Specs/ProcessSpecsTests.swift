@@ -11,31 +11,31 @@ import Alamofire
 
 class ProcessSpecsTests: XCTestCase {
     
-    private var processSpecs: ProcessSpecs!
+    private var sut: ProcessSpecs!
     private let processModelMock = Mocks.processRequest
 
     override func setUpWithError() throws {
-        processSpecs = ProcessSpecs.process(process: processModelMock)
+        sut = ProcessSpecs.process(process: processModelMock)
     }
 
     override func tearDownWithError() throws {
-        processSpecs = nil
+        sut = nil
     }
 
     func testBaseURL() {
-        XCTAssertTrue(processSpecs.baseURLString == "https://\(processModelMock.processEntity.server)/v1/process")
+        XCTAssertTrue(sut.baseURLString == "https://\(processModelMock.processEntity.server)/v1/process")
     }
     
     func testPath() {
-        XCTAssertTrue(processSpecs.path == "")
+        XCTAssertTrue(sut.path == "")
     }
     
     func testHTTPMethod() {
-        XCTAssertTrue(processSpecs.method == .post)
+        XCTAssertTrue(sut.method == .post)
     }
     
     func testParams() {
-        guard let params = processSpecs.parameters else {
+        guard let params = sut.parameters else {
             XCTFail(TestMessages.expectedParametersMessage)
             return
         }
@@ -50,6 +50,6 @@ class ProcessSpecsTests: XCTestCase {
     }
     
     func testHeaders() {
-        XCTAssertEqual(processSpecs.headers?["Authorization"], "Bearer \(Credentials.shared.token)")
+        XCTAssertEqual(sut.headers?["Authorization"], "Bearer \(Credentials.shared.token)")
     }
 }

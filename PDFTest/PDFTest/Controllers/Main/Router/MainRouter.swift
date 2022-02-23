@@ -8,7 +8,7 @@
 import UIKit
 
 final class MainRouter {
-    private weak var viewController: UIViewController?
+    private(set) weak var viewController: UIViewController?
     
     init(viewController: UIViewController) {
         self.viewController = viewController

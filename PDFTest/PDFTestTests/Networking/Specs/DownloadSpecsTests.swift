@@ -11,35 +11,35 @@ import Alamofire
 
 class DownloadSpecsTests: XCTestCase {
 
-    private var downloadSpecs: DownloadSpecs!
+    private var sut: DownloadSpecs!
     private let process = Mocks.processEntity
     
     override func setUpWithError() throws {
-        downloadSpecs = DownloadSpecs.download(process: process)
+        sut = DownloadSpecs.download(process: process)
     }
 
     override func tearDownWithError() throws {
-        downloadSpecs = nil
+        sut = nil
     }
     
     func testBaseURL() {
-        XCTAssertTrue(downloadSpecs.baseURLString == "https://\(process.server)/v1/download/\(process.task)")
+        XCTAssertTrue(sut.baseURLString == "https://\(process.server)/v1/download/\(process.task)")
     }
     
     func testPath() {
-        XCTAssertTrue(downloadSpecs.path == "")
+        XCTAssertTrue(sut.path == "")
     }
     
     func testHTTPMethod() {
-        XCTAssertTrue(downloadSpecs.method == .get)
+        XCTAssertTrue(sut.method == .get)
     }
     
     func testParams() {
-        XCTAssertTrue(downloadSpecs.parameters == nil)
+        XCTAssertTrue(sut.parameters == nil)
     }
     
     func testHeaders() {
-        XCTAssertEqual(downloadSpecs.headers?["Authorization"], "Bearer \(Credentials.shared.token)")
+        XCTAssertEqual(sut.headers?["Authorization"], "Bearer \(Credentials.shared.token)")
     }
 
 }

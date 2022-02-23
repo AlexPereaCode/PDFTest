@@ -8,10 +8,7 @@
 import UIKit
 import SwiftUI
 
-protocol CompressView: BaseView {
-    func showActivityIndicator()
-    func hideActivityIndicator()
-}
+protocol CompressView: BaseView {}
 
 class CompressViewController: BaseViewController, CompressView {
     

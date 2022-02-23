@@ -10,45 +10,45 @@ import XCTest
 
 class ProcessResponseTests: XCTestCase {
 
-    private var processResponse: ProcessResponse!
+    private var sut: ProcessResponse!
     
     override func setUpWithError() throws {
-        processResponse = try ProcessMock().getMock()
+        sut = try ProcessMock().getMock()
     }
 
     override func tearDownWithError() throws {
-        processResponse = nil
+        sut = nil
     }
 
     func testDataSuccess() {
-        XCTAssertNotNil(processResponse)
+        XCTAssertNotNil(sut)
     }
     
     func testDownloadName() {
-        XCTAssertEqual(processResponse.downloadName, "Test.pdf")
+        XCTAssertEqual(sut.downloadName, "Test.pdf")
     }
     
     func testFileSize() {
-        XCTAssertEqual(processResponse.filesize, 1042157)
+        XCTAssertEqual(sut.filesize, 1042157)
     }
     
     func testOutputSize() {
-        XCTAssertEqual(processResponse.outputSize, 205390)
+        XCTAssertEqual(sut.outputSize, 205390)
     }
     
     func testOutputNumber() {
-        XCTAssertEqual(processResponse.outputNumber, 1)
+        XCTAssertEqual(sut.outputNumber, 1)
     }
     
     func testOutputExtensions() {
-        XCTAssertEqual(processResponse.outputExtensions, "[\"pdf\"]")
+        XCTAssertEqual(sut.outputExtensions, "[\"pdf\"]")
     }
     
     func testTimer() {
-        XCTAssertEqual(processResponse.timer, "0.390")
+        XCTAssertEqual(sut.timer, "0.390")
     }
     
     func testStatus() {
-        XCTAssertEqual(processResponse.status, "TaskSuccess")
+        XCTAssertEqual(sut.status, "TaskSuccess")
     }
 }

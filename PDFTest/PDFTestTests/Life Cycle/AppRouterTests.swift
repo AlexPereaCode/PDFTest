@@ -11,22 +11,22 @@ import XCTest
 class AppRouterTests: XCTestCase {
 
     var window: UIWindow!
-    var appRouter: AppRouter!
+    var sut: AppRouter!
     
     override func setUpWithError() throws {
         window = UIWindow()
-        appRouter = AppRouter(window: window)
-        appRouter.showInitialViewController()
+        sut = AppRouter(window: window)
+        sut.showInitialViewController()
     }
 
     override func tearDownWithError() throws {
         window = nil
-        appRouter = nil
+        sut = nil
     }
 
     func testModuleIsNotNil() {
         XCTAssertNotNil(window, "window is not nil")
-        XCTAssertNotNil(appRouter, "router is not nil")
+        XCTAssertNotNil(sut, "router is not nil")
     }
     
     func testRootViewControllerIsNotNil() {
