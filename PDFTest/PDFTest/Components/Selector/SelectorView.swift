@@ -13,7 +13,7 @@ protocol SelectorViewDelegate: AnyObject {
 
 final class SelectorView: UIView {
     
-    @IBOutlet private weak var button: UIButton!
+    @IBOutlet private(set) weak var button: UIButton!
     weak var delegate: SelectorViewDelegate?
     
     var isSelected: Bool = false {

@@ -13,13 +13,13 @@ protocol CompressionSelectorViewDelegate: AnyObject {
 
 final class CompressionSelectorView: UIView {
     
-    @IBOutlet private weak var containerView: UIView! {
+    @IBOutlet private(set) weak var containerView: UIView! {
         didSet {
             containerView.layer.cornerRadius = 12
         }
     }
     
-    @IBOutlet private weak var firstSelector: SelectorView! {
+    @IBOutlet private(set) weak var firstSelector: SelectorView! {
         didSet {
             firstSelector.delegate = self
             firstSelector.type = CompressType.low
@@ -27,7 +27,7 @@ final class CompressionSelectorView: UIView {
         }
     }
     
-    @IBOutlet private weak var secondSelector: SelectorView! {
+    @IBOutlet private(set) weak var secondSelector: SelectorView! {
         didSet {
             secondSelector.delegate = self
             secondSelector.type = CompressType.recommended
@@ -35,7 +35,7 @@ final class CompressionSelectorView: UIView {
         }
     }
     
-    @IBOutlet private weak var thirdSelector: SelectorView! {
+    @IBOutlet private(set) weak var thirdSelector: SelectorView! {
         didSet {
             thirdSelector.delegate = self
             thirdSelector.type = CompressType.extreme

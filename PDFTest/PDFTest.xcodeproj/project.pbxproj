@@ -65,6 +65,8 @@
 		FAB5392E27AC6376008C9FB8 /* UploadSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB5392D27AC6376008C9FB8 /* UploadSpecs.swift */; };
 		FAB5393027AC6AA8008C9FB8 /* UploadUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB5392F27AC6AA8008C9FB8 /* UploadUseCase.swift */; };
 		FAB5393227AC6C5B008C9FB8 /* UploadResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB5393127AC6C5B008C9FB8 /* UploadResponse.swift */; };
+		FABB309127C8D0040016A5A7 /* SelectorViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABB309027C8D0040016A5A7 /* SelectorViewTests.swift */; };
+		FABB309627C8E0230016A5A7 /* CompressionSelectorViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABB309527C8E0230016A5A7 /* CompressionSelectorViewTests.swift */; };
 		FAE07B3F27AEBAA100B64932 /* CompressionSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE07B3E27AEBAA100B64932 /* CompressionSelectorView.swift */; };
 		FAE07B4127AEBAAD00B64932 /* CompressionSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAE07B4027AEBAAD00B64932 /* CompressionSelectorView.xib */; };
 		FAE07B4427AEBF7600B64932 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE07B4327AEBF7600B64932 /* UIViewExtensions.swift */; };
@@ -171,6 +173,8 @@
 		FAB5392D27AC6376008C9FB8 /* UploadSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadSpecs.swift; sourceTree = "<group>"; };
 		FAB5392F27AC6AA8008C9FB8 /* UploadUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadUseCase.swift; sourceTree = "<group>"; };
 		FAB5393127AC6C5B008C9FB8 /* UploadResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadResponse.swift; sourceTree = "<group>"; };
+		FABB309027C8D0040016A5A7 /* SelectorViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorViewTests.swift; sourceTree = "<group>"; };
+		FABB309527C8E0230016A5A7 /* CompressionSelectorViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompressionSelectorViewTests.swift; sourceTree = "<group>"; };
 		FAE07B3E27AEBAA100B64932 /* CompressionSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompressionSelectorView.swift; sourceTree = "<group>"; };
 		FAE07B4027AEBAAD00B64932 /* CompressionSelectorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompressionSelectorView.xib; sourceTree = "<group>"; };
 		FAE07B4327AEBF7600B64932 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
@@ -518,6 +522,31 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
+		FABB308E27C8CF530016A5A7 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				FABB309427C8DFE00016A5A7 /* CompressionSelector */,
+				FABB308F27C8CF860016A5A7 /* Selector */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		FABB308F27C8CF860016A5A7 /* Selector */ = {
+			isa = PBXGroup;
+			children = (
+				FABB309027C8D0040016A5A7 /* SelectorViewTests.swift */,
+			);
+			path = Selector;
+			sourceTree = "<group>";
+		};
+		FABB309427C8DFE00016A5A7 /* CompressionSelector */ = {
+			isa = PBXGroup;
+			children = (
+				FABB309527C8E0230016A5A7 /* CompressionSelectorViewTests.swift */,
+			);
+			path = CompressionSelector;
+			sourceTree = "<group>";
+		};
 		FAE07B3627AE820200B64932 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -619,6 +648,7 @@
 				FA8C57ED27B039FC00DCDF1A /* Enums */,
 				FA8C57F227B03E1100DCDF1A /* Base */,
 				FA7D191427C57CBE00B0BE9B /* Controllers */,
+				FABB308E27C8CF530016A5A7 /* Components */,
 			);
 			path = PDFTestTests;
 			sourceTree = "<group>";
@@ -933,6 +963,7 @@
 				FA75FCF427AFF78900A9A075 /* ProcessSpecsTests.swift in Sources */,
 				FA75FCFD27B0063500A9A075 /* TokenMock.swift in Sources */,
 				FA75FD0F27B00E7600A9A075 /* ProcessMock.swift in Sources */,
+				FABB309127C8D0040016A5A7 /* SelectorViewTests.swift in Sources */,
 				FA75FCEC27AFEECE00A9A075 /* TestMessages.swift in Sources */,
 				FA8C57F427B03E3900DCDF1A /* BaseViewControllerTests.swift in Sources */,
 				FA75FCF627B0008100A9A075 /* DownloadSpecsTests.swift in Sources */,
@@ -947,6 +978,7 @@
 				FA75FD0127B008B700A9A075 /* StartTaskResponseTests.swift in Sources */,
 				FA75FD0B27B00C3100A9A075 /* UploadResponseTests.swift in Sources */,
 				FA8C57F127B03B7700DCDF1A /* ProcessToolTypeTests.swift in Sources */,
+				FABB309627C8E0230016A5A7 /* CompressionSelectorViewTests.swift in Sources */,
 				FA75FCEE27AFEF6300A9A075 /* TaskSpecsTests.swift in Sources */,
 				FA1D62EB27C62C9500D27795 /* MainViewControllerTests.swift in Sources */,
 			);

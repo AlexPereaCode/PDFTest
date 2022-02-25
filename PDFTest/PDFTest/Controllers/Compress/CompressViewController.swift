@@ -12,7 +12,7 @@ protocol CompressView: BaseView {}
 
 class CompressViewController: BaseViewController, CompressView {
     
-    @IBOutlet private weak var compressionSelectorView: CompressionSelectorView!
+    @IBOutlet private(set) weak var compressionSelectorView: CompressionSelectorView!
     
     // MARK: - Properties
     var presenter: CompressPresenter<CompressViewController>? {
