@@ -10,8 +10,6 @@ import UniformTypeIdentifiers
 
 protocol MainView: BaseView {
     func presentDocumentPicker()
-    func showActivityIndicator()
-    func hideActivityIndicator()
 }
 
 class MainViewController: BaseViewController, MainView {

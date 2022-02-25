@@ -10,27 +10,24 @@ import XCTest
 
 class GetTokenUseCaseTests: XCTestCase {
     
-    private var getTokenUseCaseMock: GetTokenUseCaseMock!
-    private var getTokenUseCase: GetTokenUseCase!
+    private var sut: GetTokenUseCaseMock!
     private var expectation: XCTestExpectation!
 
     override func setUpWithError() throws {
-        getTokenUseCaseMock = GetTokenUseCaseMock()
-        getTokenUseCase = GetToken()
+        sut = GetTokenUseCaseMock()
         expectation = expectation(description: "Get Token...")
     }
 
     override func tearDownWithError() throws {
-        getTokenUseCaseMock = nil
-        getTokenUseCase = nil
+        sut = nil
         expectation = nil
     }
     
     func testGetTokenError() {
-        getTokenUseCaseMock.result = .failure(HTTPResponse.noContent)
+        sut.result = .failure(HTTPResponse.noContent)
         var authResponse: AuthResponse?
         
-        getTokenUseCaseMock.execute { [weak self] result in
+        sut.execute { [weak self] result in
             self?.expectation.fulfill()
             
             switch result {
@@ -47,7 +44,7 @@ class GetTokenUseCaseTests: XCTestCase {
     func testGetTokenSuccess() {
         var authResponse: AuthResponse?
         
-        getTokenUseCaseMock.execute { [weak self] result in
+        sut.execute { [weak self] result in
             self?.expectation.fulfill()
             
             switch result {

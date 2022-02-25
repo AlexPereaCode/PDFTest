@@ -11,30 +11,30 @@ import Alamofire
 
 class AuthSpecsTests: XCTestCase {
     
-    private var authSpecs: AuthSpecs!
+    private var sut: AuthSpecs!
 
     override func setUpWithError() throws {
-        authSpecs = AuthSpecs.getToken
+        sut = AuthSpecs.getToken
     }
 
     override func tearDownWithError() throws {
-        authSpecs = nil
+        sut = nil
     }
 
     func testBaseURL() {
-        XCTAssertTrue(authSpecs.baseURLString == Credentials.shared.apiBaseURL)
+        XCTAssertTrue(sut.baseURLString == Credentials.shared.apiBaseURL)
     }
     
     func testPath() {
-        XCTAssertTrue(authSpecs.path == "auth")
+        XCTAssertTrue(sut.path == "auth")
     }
     
     func testHTTPMethod() {
-        XCTAssertTrue(authSpecs.method == .post)
+        XCTAssertTrue(sut.method == .post)
     }
     
     func testParams() {
-        guard let params = authSpecs.parameters else {
+        guard let params = sut.parameters else {
             XCTFail(TestMessages.expectedParametersMessage)
             return
         }

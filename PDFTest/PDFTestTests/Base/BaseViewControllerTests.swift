@@ -10,33 +10,33 @@ import XCTest
 
 class BaseViewControllerTests: XCTestCase {
     
-    private var baseViewController: BaseViewController!
+    private var sut: BaseViewController!
 
     override func setUpWithError() throws {
-        baseViewController = BaseViewController()
+        sut = BaseViewController()
     }
 
     override func tearDownWithError() throws {
-        baseViewController = nil
+        sut = nil
     }
     
     func testConfigureActivityIndicator() {
-        baseViewController.viewDidLoad()
-        XCTAssertEqual(baseViewController.activityIndicator.color, .gray)
-        XCTAssertTrue(baseViewController.view.subviews.contains(baseViewController.activityIndicator))
+        sut.viewDidLoad()
+        XCTAssertEqual(sut.activityIndicator.color, .gray)
+        XCTAssertTrue(sut.view.subviews.contains(sut.activityIndicator))
     }
     
     func testShowLoading() {
-        baseViewController.viewDidLoad()
-        baseViewController.showLoading()
-        XCTAssertEqual(baseViewController.activityIndicator.isHidden, false)
-        XCTAssertEqual(baseViewController.activityIndicator.isAnimating, true)
+        sut.viewDidLoad()
+        sut.showLoading()
+        XCTAssertEqual(sut.activityIndicator.isHidden, false)
+        XCTAssertEqual(sut.activityIndicator.isAnimating, true)
     }
     
     func testHideLoading() {
-        baseViewController.viewDidLoad()
-        baseViewController.hideLoading()
-        XCTAssertEqual(baseViewController.activityIndicator.isHidden, true)
-        XCTAssertEqual(baseViewController.activityIndicator.isAnimating, false)
+        sut.viewDidLoad()
+        sut.hideLoading()
+        XCTAssertEqual(sut.activityIndicator.isHidden, true)
+        XCTAssertEqual(sut.activityIndicator.isAnimating, false)
     }
 }
