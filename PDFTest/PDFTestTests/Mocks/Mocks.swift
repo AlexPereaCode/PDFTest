@@ -16,4 +16,5 @@ final class Mocks {
     static let token = "4e97501cabd590fd376d803d4aaf00ba0ea0"
     static let processEntity = ProcessEntity(server: server, task: task, serverFilename: serverFilename, originalFilename: originalFilename)
     static let processRequest = ProcessRequest(processEntity: processEntity, tool: .compress, compressionLevel: .recommended)
+    static let url = URL(string: "www.apple.com")!
 }

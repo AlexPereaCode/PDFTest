@@ -14,6 +14,9 @@
 		FA0069A627ABB99100A7F1FD /* BasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0069A527ABB99100A7F1FD /* BasePresenter.swift */; };
 		FA0069AA27ABBA7D00A7F1FD /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0069A927ABBA7D00A7F1FD /* MainRouter.swift */; };
 		FA0069AD27ABBB1F00A7F1FD /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0069AC27ABBB1F00A7F1FD /* MainPresenter.swift */; };
+		FA11766927C6E89800A88BEA /* MainViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA11766827C6E89800A88BEA /* MainViewControllerMock.swift */; };
+		FA11766C27C6EA1300A88BEA /* MainPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA11766B27C6EA1300A88BEA /* MainPresenterMock.swift */; };
+		FA11766E27C6F06300A88BEA /* StartTaskUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA11766D27C6F06300A88BEA /* StartTaskUseCaseMock.swift */; };
 		FA1D62EB27C62C9500D27795 /* MainViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1D62EA27C62C9500D27795 /* MainViewControllerTests.swift */; };
 		FA1D62EE27C62E7500D27795 /* MainRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1D62ED27C62E7500D27795 /* MainRouterTests.swift */; };
 		FA4FCBFC27AEE14800E8C027 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4FCBFB27AEE14800E8C027 /* Colors.swift */; };
@@ -122,6 +125,9 @@
 		FA0069A527ABB99100A7F1FD /* BasePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePresenter.swift; sourceTree = "<group>"; };
 		FA0069A927ABBA7D00A7F1FD /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		FA0069AC27ABBB1F00A7F1FD /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
+		FA11766827C6E89800A88BEA /* MainViewControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerMock.swift; sourceTree = "<group>"; };
+		FA11766B27C6EA1300A88BEA /* MainPresenterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenterMock.swift; sourceTree = "<group>"; };
+		FA11766D27C6F06300A88BEA /* StartTaskUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTaskUseCaseMock.swift; sourceTree = "<group>"; };
 		FA1D62EA27C62C9500D27795 /* MainViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerTests.swift; sourceTree = "<group>"; };
 		FA1D62ED27C62E7500D27795 /* MainRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouterTests.swift; sourceTree = "<group>"; };
 		FA4FCBFB27AEE14800E8C027 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -308,6 +314,31 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
+		FA11766627C6E68300A88BEA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FA1D62EA27C62C9500D27795 /* MainViewControllerTests.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FA11766727C6E72700A88BEA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FA11766A27C6E9DD00A88BEA /* Main */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		FA11766A27C6E9DD00A88BEA /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				FA11766827C6E89800A88BEA /* MainViewControllerMock.swift */,
+				FA11766B27C6EA1300A88BEA /* MainPresenterMock.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		FA1D62EC27C62E5900D27795 /* Router */ = {
 			isa = PBXGroup;
 			children = (
@@ -439,6 +470,7 @@
 				FA75FCF127AFF27000A9A075 /* Mocks.swift */,
 				FA8C57E627B0324C00DCDF1A /* Models */,
 				FA8C57E527B0323300DCDF1A /* UseCases */,
+				FA11766727C6E72700A88BEA /* Controllers */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -455,8 +487,8 @@
 			isa = PBXGroup;
 			children = (
 				FA1D62EC27C62E5900D27795 /* Router */,
-				FA1D62EA27C62C9500D27795 /* MainViewControllerTests.swift */,
 				FA7D191627C57D2200B0BE9B /* Presenter */,
+				FA11766627C6E68300A88BEA /* Controller */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -481,6 +513,7 @@
 			isa = PBXGroup;
 			children = (
 				FA8C57E727B032A200DCDF1A /* GetTokenUseCaseMock.swift */,
+				FA11766D27C6F06300A88BEA /* StartTaskUseCaseMock.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -974,11 +1007,14 @@
 				FA75FCE927AFE92B00A9A075 /* AuthSpecsTests.swift in Sources */,
 				FA75FCE527AFE4C100A9A075 /* CredentialsTests.swift in Sources */,
 				FA75FD0527B009B400A9A075 /* StartTaskMock.swift in Sources */,
+				FA11766927C6E89800A88BEA /* MainViewControllerMock.swift in Sources */,
+				FA11766C27C6EA1300A88BEA /* MainPresenterMock.swift in Sources */,
 				FA75FCFF27B006DA00A9A075 /* AuthResponseTests.swift in Sources */,
 				FA75FD0127B008B700A9A075 /* StartTaskResponseTests.swift in Sources */,
 				FA75FD0B27B00C3100A9A075 /* UploadResponseTests.swift in Sources */,
 				FA8C57F127B03B7700DCDF1A /* ProcessToolTypeTests.swift in Sources */,
 				FABB309627C8E0230016A5A7 /* CompressionSelectorViewTests.swift in Sources */,
+				FA11766E27C6F06300A88BEA /* StartTaskUseCaseMock.swift in Sources */,
 				FA75FCEE27AFEF6300A9A075 /* TaskSpecsTests.swift in Sources */,
 				FA1D62EB27C62C9500D27795 /* MainViewControllerTests.swift in Sources */,
 			);
